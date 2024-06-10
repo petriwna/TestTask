@@ -1,0 +1,17 @@
+.icon-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &--grey {
+    fill: var(--color-secondary-grey-light);
+
+    &:hover {
+      fill: var(--color-secondary-blue);
+    }
+  }
+
+  &--active {
+    fill: var(--color-secondary-blue);
+  }
+}

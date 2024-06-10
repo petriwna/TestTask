@@ -4,6 +4,12 @@
 
 @import 'base';
 
+@import "components/button";
+@import "components/icon-btn";
+@import "components/item";
+
 @import "layouts/container";
+@import "layouts/content-section";
 @import 'layouts/header';
 @import 'layouts/main';
+@import 'layouts/viewing-section';

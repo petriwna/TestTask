@@ -1,0 +1,31 @@
+.item {
+  background-color: var(--color-secondary-white);
+  display: flex;
+
+  &__description {
+    display: flex;
+    padding: 16px 79px 8px 30px;
+    width: 100%;
+    justify-content: space-between;
+    font-weight: 500;
+  }
+
+  &__text {
+    margin-bottom: 7px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 18px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: start;
+  }
+
+  &__quantity {
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+}

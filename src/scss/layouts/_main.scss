@@ -1,7 +1,10 @@
 .main {
   height: 100vh;
+  padding-top: 190px;
+  position: relative;
 
   &:before {
+    top: 0;
     position: fixed;
     z-index: 0;
     display: block;

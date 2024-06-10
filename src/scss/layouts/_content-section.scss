@@ -1,0 +1,11 @@
+.content-section {
+  position: relative;
+  z-index: 1;
+  padding-top: 23px;
+
+  &__list {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+}

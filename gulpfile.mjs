@@ -6,6 +6,7 @@ import imagemin from 'gulp-imagemin';
 import sass from 'gulp-dart-sass';
 import connect from 'gulp-connect';
 import rimraf from 'gulp-rimraf';
+import htmlmin from 'gulp-htmlmin';
 
 const paths = {
     styles: {
@@ -13,7 +14,7 @@ const paths = {
         dest: 'dist/css/'
     },
     fonts: {
-        src: 'src/public/fonts/*.woff2',
+        src: 'src/public/fonts/**/*.woff2',
         dest: 'dist/public/fonts'
     },
     images: {
@@ -31,12 +32,13 @@ gulp.task('clean', () => {
         .pipe(rimraf());
 });
 
-gulp.task('copy:html', () => {
+gulp.task('html', () => {
     return gulp.src(paths.html.src)
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest(paths.html.dest))
 });
 
-gulp.task('copy:fonts', () => {
+gulp.task('fonts', () => {
     return gulp.src(paths.fonts.src)
         .pipe(gulp.dest(paths.fonts.dest))
 });
@@ -49,11 +51,6 @@ gulp.task('sass', () => {
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(paths.styles.dest));
 });
-
-// gulp.task('scripts', () => {
-//     return gulp.src(paths.scripts.src)
-//         .pipe(gulp.dest(paths.scripts.dest))
-// });
 
 gulp.task('images', () => {
     return gulp.src(paths.images.src)
@@ -69,14 +66,14 @@ gulp.task('server', () => {
     });
 });
 
-gulp.task('default', gulp.series('copy:html', 'copy:fonts', 'sass', 'images', 'server'));
+gulp.task('default', gulp.series('html', 'sass', 'fonts', 'images', 'server'));
 
 gulp.task('watch', () => {
-    gulp.watch(paths.html.src, gulp.series('copy:html'));
-    gulp.watch(paths.html.src, gulp.series('copy:fonts'));
+    gulp.watch(paths.html.src, gulp.series('html'));
     gulp.watch(paths.styles.src, gulp.series('sass'));
+    gulp.watch(paths.scripts.src, gulp.series('fonts'));
     gulp.watch(paths.images.src, gulp.series('images'));
-    gulp.watch('src/**/*', gulp.series('reload'));
+    // gulp.watch('src/**/*', gulp.series('reload'));
 
 });
 

@@ -1,0 +1,26 @@
+.main {
+  height: 100vh;
+
+  &:before {
+    position: fixed;
+    z-index: 0;
+    display: block;
+    width: 650px;
+    height: 398px;
+    content: "";
+    background-image: url("../../public/images/decor-top.png");
+    background-repeat: no-repeat;
+  }
+
+  &:after {
+    position: fixed;
+    display: block;
+    width: 210px;
+    height: 368px;
+    content: "";
+    background-image: url("../../public/images/decor-right.png");
+    right: 0;
+    bottom: 41px;
+    z-index: 0;
+  }
+}

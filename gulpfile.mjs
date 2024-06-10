@@ -71,10 +71,9 @@ gulp.task('default', gulp.series('html', 'sass', 'fonts', 'images', 'server'));
 gulp.task('watch', () => {
     gulp.watch(paths.html.src, gulp.series('html'));
     gulp.watch(paths.styles.src, gulp.series('sass'));
-    gulp.watch(paths.scripts.src, gulp.series('fonts'));
+    gulp.watch(paths.fonts.src, gulp.series('fonts'));
     gulp.watch(paths.images.src, gulp.series('images'));
-    // gulp.watch('src/**/*', gulp.series('reload'));
-
+    gulp.watch('src/**/*', gulp.series('reload'));
 });
 
 gulp.task('reload', (done) => {

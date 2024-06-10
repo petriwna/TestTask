@@ -5,11 +5,12 @@
     position: fixed;
     z-index: 0;
     display: block;
-    width: 650px;
+    width: 45%;
     height: 398px;
     content: "";
     background-image: url("../../public/images/decor-top.png");
     background-repeat: no-repeat;
+    background-size: contain;
   }
 
   &:after {

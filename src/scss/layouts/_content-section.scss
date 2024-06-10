@@ -2,10 +2,15 @@
   position: relative;
   z-index: 1;
   padding-top: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__list {
     gap: 8px;
     display: flex;
+    width: 100%;
     flex-direction: column;
+    margin-bottom: 33px;
   }
 }

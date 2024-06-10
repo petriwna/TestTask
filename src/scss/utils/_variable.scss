@@ -1,0 +1,17 @@
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --second-family: 'Montserrat', sans-serif;
+
+  --color-primary: rgba(255, 255, 255, 0.67);
+  --color-primary-text: #000;
+
+  --color-secondary-grey: #929292;
+  --color-secondary-blue: #3d8eda;
+
+  --shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.12),
+    inset 0 12px 24px 0 rgba(0, 0, 0, 0.12);
+}
+
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1280px;

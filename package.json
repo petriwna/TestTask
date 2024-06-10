@@ -1,0 +1,25 @@
+{
+  "name": "TestTask",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nataliia Sychevska",
+  "license": "MIT",
+  "scripts": {
+    "cmd": "gulp",
+    "build": "yarn cmd default",
+    "watch": "yarn cmd watch",
+    "clear": "yarn cmd clean",
+    "format": "prettier --write \"**/*.html\" \"**/*.css\" \"**/*.scss\""
+  },
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-dart-sass": "^1.1.0",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-rimraf": "^1.0.0",
+    "prettier": "3.1.1"
+  }
+}

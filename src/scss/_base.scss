@@ -12,15 +12,9 @@ body {
   color: var(--color-primary-text);
   font-family: var(--font-family);
   font-size: 16px;
-  font-weight: 300;
-  line-height: 1.5;
+  font-weight: 400;
   margin: 0;
-  background-color: var(--color-primary-light);
-
-  @media screen and (min-width: $bp-tablet) {
-    font-size: 18px;
-    font-weight: 400;
-  }
+  background-color: var(--color-primary);
 }
 
 h1,

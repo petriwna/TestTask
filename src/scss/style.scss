@@ -1,6 +1,8 @@
 @import 'utils/fonts';
+@import 'utils/texts';
 @import 'utils/variable';
 
 @import 'base';
 
-@import "layouts/header";
+@import "layouts/container";
+@import 'layouts/header';

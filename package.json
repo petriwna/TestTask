@@ -9,7 +9,7 @@
     "build": "yarn cmd default",
     "watch": "yarn cmd watch",
     "clear": "yarn cmd clean",
-    "format": "prettier --write \"**/*.html\" \"**/*.css\" \"**/*.scss\""
+    "format": "prettier --write \"**/*.html\" \"**/*.scss\""
   },
   "devDependencies": {
     "gulp": "^5.0.0",

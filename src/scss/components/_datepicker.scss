@@ -1,0 +1,15 @@
+.datepicker {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  & .datepicker-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  &__input {
+    border: none !important;
+  }
+}

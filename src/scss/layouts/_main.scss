@@ -2,11 +2,11 @@
   position: relative;
   padding: 150px 10px 40px 10px;
 
-  @media screen and (min-width: $bp-mobile){
+  @media screen and (min-width: $bp-mobile) {
     padding: 190px 10px 61px 10px;
   }
 
-  @media screen and (min-width: $bp-tablet){
+  @media screen and (min-width: $bp-tablet) {
     padding: 190px 0 61px 0;
   }
 
@@ -18,8 +18,8 @@
     display: block;
     width: 45%;
     height: 398px;
-    content: "";
-    background-image: url("../../public/images/decor-top.png");
+    content: '';
+    background-image: url('../../public/images/decor-top.png');
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -29,8 +29,8 @@
     display: block;
     width: 210px;
     height: 368px;
-    content: "";
-    background-image: url("../../public/images/decor-right.png");
+    content: '';
+    background-image: url('../../public/images/decor-right.png');
     right: 0;
     bottom: 41px;
     z-index: 0;

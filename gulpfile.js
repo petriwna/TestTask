@@ -22,10 +22,6 @@ const paths = {
         src: 'src/js/**/*.js',
         dest: 'dist/js/'
     },
-    copy: {
-        src: 'src/air-datepicker/*',
-        dest: 'dist/air-datepicker/'
-    },
     fonts: {
         src: 'src/public/fonts/**/*.woff2',
         dest: 'dist/public/fonts'
@@ -54,11 +50,6 @@ gulp.task('html', () => {
 gulp.task('fonts', () => {
     return gulp.src(paths.fonts.src)
         .pipe(gulp.dest(paths.fonts.dest))
-});
-
-gulp.task('copy', () => {
-    return gulp.src(paths.copy.src)
-        .pipe(gulp.dest(paths.copy.dest))
 });
 
 gulp.task('sass', () => {
@@ -98,10 +89,9 @@ gulp.task('server', () => {
     });
 });
 
-gulp.task('default', gulp.series('clean', 'copy', 'html', 'scripts', 'sass', 'fonts', 'images', 'server'));
+gulp.task('default', gulp.series('clean', 'html', 'scripts', 'sass', 'fonts', 'images', 'server'));
 
 gulp.task('watch', () => {
-    gulp.watch(paths.copy.src, gulp.series('copy'));
     gulp.watch(paths.html.src, gulp.series('html'));
     gulp.watch(paths.styles.src, gulp.series('sass'));
     gulp.watch(paths.scripts.src, gulp.series('scripts'));

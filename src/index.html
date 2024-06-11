@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>TestTask</title>
     <link rel="stylesheet" href="css/style.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 <header class="header">
@@ -26,10 +27,47 @@
                 </div>
                 <div class="header__date">
                     <div class="header__datepicker datepicker">
-                        <label for="datepicker" class="visually-hidden">Select a date:</label>
-                        <input type="text" id="datepicker" class="datepicker__input" placeholder="from">
-                        <span class="clear-btn material-icons">clear</span>
-                        <span class="datepicker-btn material-icons">date_range</span>
+                        <label for="datepicker-from" class="visually-hidden">Select a date:</label>
+                        <input type="text" class="datepicker__input" id="datepicker-from" placeholder="from">
+                        <button
+                                class="datepicker__icon-btn close"
+                                type="button"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.6569 16.2426L13.4142 12L17.6569 7.75736L16.2426 6.34315L12 10.5858L7.75736 6.34315L6.34315 7.75736L10.5858 12L6.34315 16.2426L7.75736 17.6569L12 13.4142L16.2426 17.6569L17.6569 16.2426Z" fill="#5F5F5F" />
+                            </svg>
+                        </button>
+                        <button
+                                class="datepicker__icon-btn calendar"
+                                type="button"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 11H9V13H7V11ZM7 15H9V17H7V15ZM11 11H13V13H11V11ZM11 15H13V17H11V15ZM15 11H17V13H15V11ZM15 15H17V17H15V15Z" fill="#5F5F5F" />
+                                <path d="M5 22H19C20.103 22 21 21.103 21 20V6C21 4.897 20.103 4 19 4H17V2H15V4H9V2H7V4H5C3.897 4 3 4.897 3 6V20C3 21.103 3.897 22 5 22ZM19 8L19.001 20H5V8H19Z" fill="#5F5F5F" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="header__datepicker datepicker">
+                        <label for="datepicker-to" class="visually-hidden">Select a date:</label>
+                        <input type="text" class="datepicker__input" id="datepicker-to" placeholder="to">
+                        <button
+                                class="datepicker__icon-btn close"
+                                type="button"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.6569 16.2426L13.4142 12L17.6569 7.75736L16.2426 6.34315L12 10.5858L7.75736 6.34315L6.34315 7.75736L10.5858 12L6.34315 16.2426L7.75736 17.6569L12 13.4142L16.2426 17.6569L17.6569 16.2426Z" fill="#5F5F5F" />
+                            </svg>
+                        </button>
+                        <button
+                                class="datepicker__icon-btn calendar"
+                                type="button"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 11H9V13H7V11ZM7 15H9V17H7V15ZM11 11H13V13H11V11ZM11 15H13V17H11V15ZM15 11H17V13H15V11ZM15 15H17V17H15V15Z" fill="#5F5F5F" />
+                                <path d="M5 22H19C20.103 22 21 21.103 21 20V6C21 4.897 20.103 4 19 4H17V2H15V4H9V2H7V4H5C3.897 4 3 4.897 3 6V20C3 21.103 3.897 22 5 22ZM19 8L19.001 20H5V8H19Z" fill="#5F5F5F" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -40,7 +78,7 @@
     <div class="container">
         <section class="viewing-section">
             <button
-                    class="viewing__icon-btn icon-btn icon-btn--grey"
+                    class="viewing__icon-btn icon-btn icon-btn--grey grid"
                     type="button"
             >
                 <svg width="22" height="22">
@@ -48,7 +86,7 @@
                 </svg>
             </button>
             <button
-                    class="viewing__icon-btn icon-btn icon-btn--grey icon-btn--active"
+                    class="viewing__icon-btn icon-btn icon-btn--grey row"
                     type="button"
             >
                 <svg width="22" height="22">
@@ -57,7 +95,7 @@
             </button>
         </section>
         <section class="content-section">
-            <ul class="content-section__list-row visually-hidden">
+            <ul class="content-section__list-row">
                 <li>
                     <article class="item-row">
                         <img src="public/images/item1.png" alt="photo"/>
@@ -1325,6 +1363,7 @@
         </section>
     </div>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script type="module" src="./js/bundle.js"></script>
 </body>
 </html>

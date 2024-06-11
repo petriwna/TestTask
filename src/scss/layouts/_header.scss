@@ -72,4 +72,10 @@
     font-size: 14px;
     justify-content: space-around;
   }
+
+  &__date {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+  }
 }

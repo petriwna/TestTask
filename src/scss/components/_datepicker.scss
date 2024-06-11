@@ -3,13 +3,34 @@
   align-items: center;
   position: relative;
 
-  & .datepicker-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
+  &__input {
+    height: 28px;
+    width: 109px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid var(--color-secondary-grey);
+    padding: 6px 8px;
+    color: var(--color-secondary-text);
+    font-size: 13px;
+
+    &::placeholder {
+      color: var(--color-secondary-text);
+      font-size: 13px;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 
-  &__input {
-    border: none !important;
+  &__icon-btn {
+    padding: 0;
+    border-top: 1px solid var(--color-secondary-grey);
+    border-right: 1px solid var(--color-secondary-grey);
+    border-bottom: 1px solid var(--color-secondary-grey);
+    border-left: none;
+    height: 28px;
+    display: flex;
+    align-items: center;
   }
+
 }

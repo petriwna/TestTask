@@ -2,6 +2,11 @@
   background-color: var(--color-secondary-white);
   display: flex;
 
+  &__img {
+    width: 86px;
+    height: 86px;
+  }
+
   &__description {
     display: flex;
     padding: 16px 10px 8px 10px;
@@ -16,6 +21,12 @@
     @media screen and (min-width: $bp-tablet) {
       padding: 16px 79px 8px 30px;
     }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
   }
 
   &__text {

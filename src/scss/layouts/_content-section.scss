@@ -17,11 +17,6 @@
   &__list-grid {
     display: flex;
     flex-direction: column;
-    //display: grid;
-    //grid-template-columns: repeat(2, 1fr);
-    //grid-template-rows: repeat(4, 1fr);
-    //grid-column-gap: 8px;
-    //grid-row-gap: 16px;
     margin-bottom: 16px;
 
     @media screen and (min-width: $bp-mobile-little) {

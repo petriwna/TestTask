@@ -3,8 +3,6 @@
 
   &__description {
     padding: 12px 12px 18px;
-    display: flex;
-    flex-direction: column;
     gap: 8px;
   }
 
@@ -25,5 +23,6 @@
   &__bottom {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 }

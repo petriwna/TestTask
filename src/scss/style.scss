@@ -1,12 +1,15 @@
 @import 'utils/fonts';
 @import 'utils/texts';
+@import 'utils/utils';
 @import 'utils/variable';
 
 @import 'base';
 
 @import "components/button";
+@import "components/icon";
 @import "components/icon-btn";
-@import "components/item";
+@import "components/item-grid";
+@import "components/item-row";
 
 @import "layouts/container";
 @import "layouts/content-section";

@@ -1,0 +1,29 @@
+.item-grid {
+  background-color: var(--color-secondary-white);
+
+  &__description {
+    padding: 12px 12px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: start;
+  }
+
+  &__text {
+    margin: 7px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+}

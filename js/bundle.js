@@ -87,15 +87,15 @@ var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
     _classCallCheck(this, ViewToggle);
     this.listButton = document.querySelector('.row');
     this.gridButton = document.querySelector('.grid');
-    this.listView = document.querySelector('.content-section__list-row');
-    this.gridView = document.querySelector('.content-section__list-grid');
+    this.container = document.querySelector('.content-section__list');
+    this.items = document.querySelectorAll('.item');
     this.initView();
     this.addEventListeners();
   }
   return _createClass(ViewToggle, [{
     key: "initView",
     value: function initView() {
-      this.gridView.classList.add('visually-hidden');
+      this.container.classList.add('list-row');
       this.listButton.classList.add('icon-btn--active');
     }
   }, {
@@ -112,18 +112,20 @@ var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
   }, {
     key: "showListView",
     value: function showListView() {
-      this.listView.classList.remove('visually-hidden');
-      this.gridView.classList.add('visually-hidden');
+      this.container.classList.remove('list-grid');
+      this.container.classList.add('list-row');
       this.gridButton.classList.remove('icon-btn--active');
       this.listButton.classList.add('icon-btn--active');
+      this.items[this.items.length - 1].style.display = 'flex';
     }
   }, {
     key: "showGridView",
     value: function showGridView() {
-      this.gridView.classList.remove('visually-hidden');
-      this.listView.classList.add('visually-hidden');
+      this.container.classList.remove('list-row');
+      this.container.classList.add('list-grid');
       this.listButton.classList.remove('icon-btn--active');
       this.gridButton.classList.add('icon-btn--active');
+      this.items[this.items.length - 1].style.display = 'none';
     }
   }]);
 }();

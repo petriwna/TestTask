@@ -12,6 +12,7 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import babelify from 'babelify';
 import sourcemaps from 'gulp-sourcemaps';
+import ghPages from 'gulp-gh-pages';
 
 const paths = {
     styles: {
@@ -103,4 +104,9 @@ gulp.task('watch', () => {
 gulp.task('reload', (done) => {
     connect.reload();
     done();
+});
+
+gulp.task('deploy', function() {
+    return gulp.src('./dist/**/*')
+        .pipe(ghPages());
 });

@@ -1,0 +1,51 @@
+.list-grid {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  gap: 10px;
+
+  @media screen and (min-width: $bp-mobile-little) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 16px;
+  }
+
+  @media screen and (min-width: $bp-mobile-big) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: $bp-tablet) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  & .item {
+    display: block;
+  }
+
+  & .item__description {
+    padding: 12px 12px 18px;
+  }
+
+  & .item__top {
+    margin-bottom: 24px;
+  }
+
+  & .item__text {
+    margin: 7px;
+  }
+
+  & .item__buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  & .item__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}

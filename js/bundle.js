@@ -1,63 +1,144 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 
-function init() {
-  var elemFrom = document.getElementById('datepicker-from');
-  var elemTo = document.getElementById('datepicker-to');
-  var customLocale = {
-    weekdays: {
-      shorthand: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-      longhand: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.DatePicker = void 0;
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var DatePicker = exports.DatePicker = /*#__PURE__*/function () {
+  function DatePicker() {
+    _classCallCheck(this, DatePicker);
+    this.datePickerFrom = document.querySelector('#datepicker-from');
+    this.datePickerTo = document.querySelector('#datepicker-to');
+    this.clearButtons = document.querySelectorAll('.close');
+    this.openCalendarButtons = document.querySelectorAll('.calendar');
+    this.customLocale = {
+      weekdays: {
+        shorthand: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+        longhand: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      }
+    };
+    flatpickr.localize(this.customLocale);
+    this.initDatePicker(this.datePickerFrom);
+    this.initDatePicker(this.datePickerTo);
+    this.addEventListeners();
+  }
+  return _createClass(DatePicker, [{
+    key: "initDatePicker",
+    value: function initDatePicker(inputElement) {
+      flatpickr(inputElement, {
+        altInput: true,
+        altFormat: "d_m_Y",
+        prevArrow: '&lt;&lt;',
+        nextArrow: '&gt;&gt;'
+      });
     }
-  };
-  flatpickr.localize(customLocale);
-  flatpickr(elemFrom, {
-    altInput: true,
-    altFormat: "d_m_Y",
-    prevArrow: '&lt;&lt;',
-    nextArrow: '&gt;&gt;'
-  });
-  flatpickr(elemTo, {
-    altInput: true,
-    altFormat: "d_m_Y",
-    prevArrow: '&lt;&lt;',
-    nextArrow: '&gt;&gt;'
-  });
-  var toggleButtons = document.querySelectorAll('.calendar');
-  toggleButtons.forEach(function (el) {
-    el.addEventListener('click', function (event) {
-      var input = event.target.closest('.header__datepicker').querySelector('input');
-      input._flatpickr.toggle();
-    });
-  });
-  var clearButtons = document.querySelectorAll('.close');
-  clearButtons.forEach(function (el) {
-    el.addEventListener('click', function () {
+  }, {
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      var _this = this;
+      this.clearButtons.forEach(function (button) {
+        button.addEventListener('click', function (event) {
+          return _this.handleClickClearBtn(event);
+        });
+      });
+      this.openCalendarButtons.forEach(function (button) {
+        button.addEventListener('click', function (event) {
+          return _this.handleClickOpenCalendarBtn(event);
+        });
+      });
+    }
+  }, {
+    key: "handleClickClearBtn",
+    value: function handleClickClearBtn(event) {
       var input = event.target.closest('.header__datepicker').querySelector('input');
       input._flatpickr.clear();
-    });
-  });
-  var listType = document.querySelector('.row');
-  var blockType = document.querySelector('.grid');
-  var list = document.querySelector('.content-section__list-row');
-  var grid = document.querySelector('.content-section__list-grid');
-  grid.classList.add('visually-hidden');
-  listType.classList.add('icon-btn--active');
-  listType.addEventListener('click', function () {
-    list.classList.remove('visually-hidden');
-    grid.classList.add('visually-hidden');
-    blockType.classList.remove('icon-btn--active');
-    listType.classList.add('icon-btn--active');
-  });
-  blockType.addEventListener('click', function () {
-    grid.classList.remove('visually-hidden');
-    list.classList.add('visually-hidden');
-    listType.classList.remove('icon-btn--active');
-    blockType.classList.add('icon-btn--active');
-  });
+    }
+  }, {
+    key: "handleClickOpenCalendarBtn",
+    value: function handleClickOpenCalendarBtn(event) {
+      var input = event.target.closest('.header__datepicker').querySelector('input');
+      input._flatpickr.toggle();
+    }
+  }]);
+}();
+
+},{}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ViewToggle = void 0;
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
+  function ViewToggle() {
+    _classCallCheck(this, ViewToggle);
+    this.listButton = document.querySelector('.row');
+    this.gridButton = document.querySelector('.grid');
+    this.listView = document.querySelector('.content-section__list-row');
+    this.gridView = document.querySelector('.content-section__list-grid');
+    this.initView();
+    this.addEventListeners();
+  }
+  return _createClass(ViewToggle, [{
+    key: "initView",
+    value: function initView() {
+      this.gridView.classList.add('visually-hidden');
+      this.listButton.classList.add('icon-btn--active');
+    }
+  }, {
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      var _this = this;
+      this.listButton.addEventListener('click', function () {
+        return _this.showListView();
+      });
+      this.gridButton.addEventListener('click', function () {
+        return _this.showGridView();
+      });
+    }
+  }, {
+    key: "showListView",
+    value: function showListView() {
+      this.listView.classList.remove('visually-hidden');
+      this.gridView.classList.add('visually-hidden');
+      this.gridButton.classList.remove('icon-btn--active');
+      this.listButton.classList.add('icon-btn--active');
+    }
+  }, {
+    key: "showGridView",
+    value: function showGridView() {
+      this.gridView.classList.remove('visually-hidden');
+      this.listView.classList.add('visually-hidden');
+      this.listButton.classList.remove('icon-btn--active');
+      this.gridButton.classList.add('icon-btn--active');
+    }
+  }]);
+}();
+
+},{}],3:[function(require,module,exports){
+"use strict";
+
+var _DatePicker = require("./DatePicker.js");
+var _ViewToggle = require("./ViewToggle.js");
+function init() {
+  new _DatePicker.DatePicker();
+  new _ViewToggle.ViewToggle();
 }
 document.addEventListener('DOMContentLoaded', init);
 
-},{}]},{},[1])
+},{"./DatePicker.js":1,"./ViewToggle.js":2}]},{},[3])
 
 //# sourceMappingURL=bundle.js.map

@@ -23,7 +23,6 @@
   }
 
   &__icon-btn {
-    border-radius: 0 4px 4px 0;
     padding: 0;
     border-top: 1px solid var(--color-secondary-grey);
     border-right: 1px solid var(--color-secondary-grey);
@@ -34,6 +33,10 @@
     align-items: center;
     cursor: pointer;
     fill: var(--color-calendar-dark);
+
+    &--border-rad-right {
+      border-radius: 0 4px 4px 0;
+    }
   }
 
 }

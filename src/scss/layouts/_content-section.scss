@@ -18,6 +18,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 16px;
+    gap: 10px;
 
     @media screen and (min-width: $bp-mobile-little) {
       display: grid;

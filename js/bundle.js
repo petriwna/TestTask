@@ -50,7 +50,7 @@ var DatePicker = exports.DatePicker = /*#__PURE__*/function () {
   }
   return _createClass(DatePicker, [{
     key: "initDatePicker",
-    value: function initDatePicker(inputElement) {
+    value: function initDatePicker() {
       var dpMin = new _airDatepicker["default"]('#datepicker-from', {
         locale: _en["default"],
         silent: true,
@@ -78,6 +78,8 @@ var DatePicker = exports.DatePicker = /*#__PURE__*/function () {
       var dpMax = new _airDatepicker["default"]("#datepicker-to", {
         locale: _en["default"],
         autoClose: true,
+        prevHtml: "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <path d=\"M10.2608 3.5L11.0833 4.3225L8.41159 7L11.0833 9.6775L10.2608 10.5L6.76075 7L10.2608 3.5Z\" fill=\"black\" />\n                <path d=\"M6.41676 3.5L7.23926 4.3225L4.56759 7L7.23926 9.6775L6.41676 10.5L2.91676 7L6.41676 3.5Z\" fill=\"black\" />\n              </svg>",
+        nextHtml: "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                <path d=\"M3.73925 3.5L2.91675 4.3225L5.58841 7L2.91675 9.6775L3.73925 10.5L7.23925 7L3.73925 3.5Z\" fill=\"black\" />\n                <path d=\"M7.58324 3.5L6.76074 4.3225L9.43241 7L6.76074 9.6775L7.58324 10.5L11.0832 7L7.58324 3.5Z\" fill=\"black\" />\n              </svg>",
         dateFormat: function dateFormat(date) {
           return date.toLocaleString('ua', {
             year: 'numeric',
@@ -86,7 +88,7 @@ var DatePicker = exports.DatePicker = /*#__PURE__*/function () {
           }).split(".").join('_');
         },
         navTitles: {
-          days: '<strong>MMMM</strong> <i>yyyy</i>',
+          days: '<strong>MMMM</strong> <strong>yyyy</strong>',
           months: 'Select month of <strong>yyyy</strong>'
         },
         onSelect: function onSelect(_ref2) {

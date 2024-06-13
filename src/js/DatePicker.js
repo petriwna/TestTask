@@ -16,7 +16,7 @@ export class DatePicker {
         this.addEventListeners();
     }
 
-    initDatePicker(inputElement) {
+    initDatePicker() {
         let dpMin = new AirDatepicker('#datepicker-from', {
             locale: en,
             silent: true,
@@ -49,6 +49,14 @@ export class DatePicker {
         let dpMax = new AirDatepicker("#datepicker-to", {
             locale: en,
             autoClose: true,
+            prevHtml: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.2608 3.5L11.0833 4.3225L8.41159 7L11.0833 9.6775L10.2608 10.5L6.76075 7L10.2608 3.5Z" fill="black" />
+                <path d="M6.41676 3.5L7.23926 4.3225L4.56759 7L7.23926 9.6775L6.41676 10.5L2.91676 7L6.41676 3.5Z" fill="black" />
+              </svg>`,
+            nextHtml: `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.73925 3.5L2.91675 4.3225L5.58841 7L2.91675 9.6775L3.73925 10.5L7.23925 7L3.73925 3.5Z" fill="black" />
+                <path d="M7.58324 3.5L6.76074 4.3225L9.43241 7L6.76074 9.6775L7.58324 10.5L11.0832 7L7.58324 3.5Z" fill="black" />
+              </svg>`,
             dateFormat(date) {
                 return date.toLocaleString('ua', {
                     year: 'numeric',
@@ -57,7 +65,7 @@ export class DatePicker {
                 }).split(".").join('_');
             },
             navTitles: {
-                days: '<strong>MMMM</strong> <i>yyyy</i>',
+                days: '<strong>MMMM</strong> <strong>yyyy</strong>',
                 months: 'Select month of <strong>yyyy</strong>'
             },
             onSelect({date}) {

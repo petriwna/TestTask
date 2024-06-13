@@ -91,6 +91,7 @@ var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
     this.container = document.querySelector('.content-section__list');
     this.items = document.querySelectorAll('.item');
     this.itemLength = 0;
+    this.displayItem = this.container.classList.contains('list-row') ? 9 : 8;
     this.initView();
     this.addEventListeners();
   }

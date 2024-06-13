@@ -8,4 +8,10 @@
   color: var(--color-secondary-grey-dark);
   padding: 8px 26px;
   cursor: pointer;
+
+  &:disabled {
+    cursor: none;
+    color: var(--color-secondary-grey-light);
+    border: 1px solid var(--color-secondary-grey-light);
+  }
 }

@@ -7,6 +7,7 @@ export class ViewToggle {
         this.items = document.querySelectorAll('.item');
 
         this.itemLength = 0;
+        this.displayItem = this.container.classList.contains('list-row') ? 9 : 8;
 
         this.initView();
         this.addEventListeners();

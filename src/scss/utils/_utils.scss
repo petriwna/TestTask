@@ -6,3 +6,43 @@
   height: 1px;
   overflow: hidden;
 }
+
+
+.air-datepicker {
+  width: 201px;
+}
+
+.air-datepicker-nav {
+  border-bottom: none;
+}
+
+.air-datepicker-nav--action svg {
+  width: 14px;
+  height: 14px
+}
+
+.air-datepicker-nav--title {
+  padding: 0;
+  font-size: 14px;
+  gap: 6px;
+}
+
+.air-datepicker-nav--action path {
+  stroke: var(--color-primary-text);
+  stroke-width: 1px;
+}
+
+.air-datepicker-body--day-names {
+  margin: 0 0 3px;
+  font-size: 13px;
+}
+
+.air-datepicker-cell {
+  width: 23px;
+  height: 23px;
+}
+
+.air-datepicker-body--day-name {
+  color: var(--color-primary-text);
+  font-weight: 700;
+}

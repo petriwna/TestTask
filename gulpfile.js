@@ -34,6 +34,10 @@ const paths = {
     html: {
         src: './src/**/*.html',
         dest: './dist'
+    },
+    vendorCSS: {
+        src: 'node_modules/air-datepicker/air-datepicker.css',
+        dest: 'src/scss/vendor/'
     }
 };
 
@@ -52,6 +56,12 @@ gulp.task('fonts', () => {
     return gulp.src(paths.fonts.src)
         .pipe(gulp.dest(paths.fonts.dest))
 });
+
+gulp.task('copyVendorCSS', () => {
+    return gulp.src(paths.vendorCSS.src)
+        .pipe(gulp.dest(paths.vendorCSS.dest));
+});
+
 
 gulp.task('sass', () => {
     return gulp.src(paths.styles.src)
@@ -90,7 +100,7 @@ gulp.task('server', () => {
     });
 });
 
-gulp.task('default', gulp.series('clean', 'html', 'scripts', 'sass', 'fonts', 'images', 'server'));
+gulp.task('default', gulp.series('clean', 'copyVendorCSS', 'html', 'scripts', 'sass', 'fonts', 'images', 'server'));
 
 gulp.task('watch', () => {
     gulp.watch(paths.html.src, gulp.series('html'));

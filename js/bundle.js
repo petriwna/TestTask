@@ -87,8 +87,10 @@ var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
     _classCallCheck(this, ViewToggle);
     this.listButton = document.querySelector('.row');
     this.gridButton = document.querySelector('.grid');
+    this.moreButton = document.querySelector('.more');
     this.container = document.querySelector('.content-section__list');
     this.items = document.querySelectorAll('.item');
+    this.itemLength = 0;
     this.initView();
     this.addEventListeners();
   }
@@ -97,6 +99,9 @@ var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
     value: function initView() {
       this.container.classList.add('list-row');
       this.listButton.classList.add('icon-btn--active');
+      for (var i = 0; i < 9; i++) {
+        this.items[i].style.display = 'flex';
+      }
     }
   }, {
     key: "addEventListeners",
@@ -108,6 +113,9 @@ var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
       this.gridButton.addEventListener('click', function () {
         return _this.showGridView();
       });
+      this.moreButton.addEventListener('click', function () {
+        return _this.showMoreItems();
+      });
     }
   }, {
     key: "showListView",
@@ -116,7 +124,10 @@ var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
       this.container.classList.add('list-row');
       this.gridButton.classList.remove('icon-btn--active');
       this.listButton.classList.add('icon-btn--active');
-      this.items[this.items.length - 1].style.display = 'flex';
+      this.items.forEach(function (item) {
+        item.style.display = 'none';
+      });
+      this.showInitialItems();
     }
   }, {
     key: "showGridView",
@@ -125,7 +136,36 @@ var ViewToggle = exports.ViewToggle = /*#__PURE__*/function () {
       this.container.classList.add('list-grid');
       this.listButton.classList.remove('icon-btn--active');
       this.gridButton.classList.add('icon-btn--active');
-      this.items[this.items.length - 1].style.display = 'none';
+      this.items.forEach(function (item) {
+        item.style.display = 'none';
+      });
+      this.showInitialItems();
+    }
+  }, {
+    key: "showInitialItems",
+    value: function showInitialItems() {
+      var initialDisplayCount = this.container.classList.contains('list-row') ? 9 : 8;
+      var displayStyle = this.container.classList.contains('list-row') ? 'flex' : 'block';
+      for (var i = 0; i < initialDisplayCount && i < this.items.length; i++) {
+        this.items[i].style.display = displayStyle;
+      }
+      this.itemLength = initialDisplayCount;
+    }
+  }, {
+    key: "showMoreItems",
+    value: function showMoreItems() {
+      var additionalItemCount = 4;
+      var displayStyle = this.container.classList.contains('list-row') ? 'flex' : 'block';
+      var displayedItems = 0;
+      this.items.forEach(function (item) {
+        if (item.style.display === displayStyle) {
+          displayedItems++;
+        }
+      });
+      for (var i = displayedItems; i < displayedItems + additionalItemCount && i < this.items.length; i++) {
+        this.items[i].style.display = displayStyle;
+      }
+      this.itemLength += additionalItemCount;
     }
   }]);
 }();
